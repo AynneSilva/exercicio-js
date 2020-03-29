@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios</title>
+    <script>
+        window.onload = function() {
+            if (this.navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(mostrarLocalizacao);
+            } else {
+                target.innerText = 'API de Geolocalização não suportada';
+            }
+        };
+
+        function mostrarLocalizacao(location) {
+            var element = document.getElementById('map');
+            element.innerHTML = "Latitude: " + location.coords.latitude + " Longitude: " + location.coords.longitude;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="map">
+
+    </div>
+</body>
+
+</html>
