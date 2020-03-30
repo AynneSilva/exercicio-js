@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: beige;
+        }
+        
+        h1 {
+            color: darkslategray;
+            text-align: center;
+        }
+        
+        form {
+            margin: 0 auto;
+            width: 400px;
+            padding: 1em;
+            border: 1px solid #CCC;
+            border-radius: 1em;
+        }
+        
+        form div+div {
+            margin-top: 1em;
+        }
+        
+        label {
+            display: inline-block;
+            width: 90px;
+            text-align: right;
+        }
+        
+        input,
+        textarea {
+            font: 1em sans-serif;
+            width: 300px;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            border: 1px solid #999;
+        }
+        
+        input:focus,
+        textarea:focus {
+            border-color: #000;
+        }
+        
+        textarea {
+            vertical-align: top;
+            height: 5em;
+            resize: vertical;
+        }
+        
+        .button {
+            padding-left: 90px;
+        }
+        
+        button {
+            margin-left: .5em;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $.get("https://ipinfo.io?token=979d414328ff73", function(response) {
+                console.log(response);
+                $.each(response, function(key, value) {
+                    $("#dados").append("<p>" + key + ":" + value + "</p>");
+                });
+            }, "jsonp")
+        });
+    </script>
+</head>
+<boby>
+    <div>
+        <h1>DADOS</h1>
+    </div>
+    <div id="dados">
+    </div>
+</boby>
+
+</html>
